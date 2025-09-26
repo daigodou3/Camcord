@@ -43,10 +43,10 @@ void main() {
 	vec2 texels = vec2(X, Y) / oneTexel;
 	vec2 texelsFract = fract(texels);
 
-	vec4 v11 = texture2D(DiffuseSampler, vec2(X, Y));
-	vec4 v12 = texture2D(DiffuseSampler, vec2(X + oneTexel.x, Y));
-	vec4 v21 = texture2D(DiffuseSampler, vec2(X, Y + oneTexel.y));
-	vec4 v22 = texture2D(DiffuseSampler, vec2(X + oneTexel.x, Y + oneTexel.y));
+	vec4 v11 = texture(DiffuseSampler, vec2(X, Y));
+	vec4 v12 = texture(DiffuseSampler, vec2(X + oneTexel.x, Y));
+	vec4 v21 = texture(DiffuseSampler, vec2(X, Y + oneTexel.y));
+	vec4 v22 = texture(DiffuseSampler, vec2(X + oneTexel.x, Y + oneTexel.y));
 
 	vec4 color = mix(mix(v11, v12, texelsFract.x), mix(v21, v22, texelsFract.x), texelsFract.y);
 	fragColor = vec4(color.rgb, 1.0);
